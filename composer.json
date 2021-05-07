@@ -1,7 +1,7 @@
 {
     "name": "vivebamba/bamba-sdk-php",
-    "version": "1.0.0",
     "description": "SDK for Bamba API",
+    "type": "library",
     "keywords": [
         "openapitools",
         "openapi-generator",
