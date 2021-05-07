@@ -1,4 +1,4 @@
-# bamba-api-php
+# bamba-sdk-php
 
 SDK for Bamba API
 
@@ -35,7 +35,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/bamba-api-php/vendor/autoload.php');
+require_once('/path/to/bamba-sdk-php/vendor/autoload.php');
 ```
 
 ## Getting Started

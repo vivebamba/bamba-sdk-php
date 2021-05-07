@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .php_cs
 .travis.yml
 README.md
@@ -35,15 +34,3 @@ lib/Model/ProductBundleItems.php
 lib/Model/Service.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/BambaAgentApiTest.php
-test/Api/CustomerApiTest.php
-test/Api/StoreApiTest.php
-test/Model/CustomerTest.php
-test/Model/ErrorTest.php
-test/Model/InlineResponse200Test.php
-test/Model/MessageTest.php
-test/Model/OrderProductsTest.php
-test/Model/OrderTest.php
-test/Model/ProductBundleItemsTest.php
-test/Model/ProductTest.php
-test/Model/ServiceTest.php
