@@ -202,7 +202,7 @@ class BambaAgentApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 5XX:
+                case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Bamba\Model\Error',

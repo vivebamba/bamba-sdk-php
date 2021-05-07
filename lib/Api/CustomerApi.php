@@ -224,7 +224,7 @@ class CustomerApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 5XX:
+                case 500:
                     if ('\Bamba\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -285,7 +285,7 @@ class CustomerApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 5XX:
+                case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Bamba\Model\Error',

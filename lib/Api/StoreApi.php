@@ -224,7 +224,7 @@ class StoreApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 5XX:
+                case 500:
                     if ('\Bamba\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -297,7 +297,7 @@ class StoreApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 5XX:
+                case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Bamba\Model\Error',
@@ -583,7 +583,7 @@ class StoreApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 5XX:
+                case 500:
                     if ('\Bamba\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -644,7 +644,7 @@ class StoreApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 5XX:
+                case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Bamba\Model\Error',
