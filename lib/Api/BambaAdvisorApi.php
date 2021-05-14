@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerApi
+ * BambaAdvisorApi
  * PHP version 7.2
  *
  * @category Class
@@ -40,14 +40,14 @@ use Bamba\HeaderSelector;
 use Bamba\ObjectSerializer;
 
 /**
- * CustomerApi Class Doc Comment
+ * BambaAdvisorApi Class Doc Comment
  *
  * @category Class
  * @package  Bamba
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerApi
+class BambaAdvisorApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,36 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomerIdServiceGet
+     * Operation advisorMessagePost
      *
-     * Get customer services
+     * Send messages to the Bamba Advisor
      *
-     * @param  int $customerId Bamba customer unique identifier (required)
+     * @param  \Bamba\Model\AdvisorMessageRequest $advisorMessageRequest advisorMessageRequest (optional)
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bamba\Model\Service|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error
+     * @return \Bamba\Model\InlineResponse2001|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse
      */
-    public function customerCustomerIdServiceGet($customerId)
+    public function advisorMessagePost($advisorMessageRequest = null)
     {
-        list($response) = $this->customerCustomerIdServiceGetWithHttpInfo($customerId);
+        list($response) = $this->advisorMessagePostWithHttpInfo($advisorMessageRequest);
         return $response;
     }
 
     /**
-     * Operation customerCustomerIdServiceGetWithHttpInfo
+     * Operation advisorMessagePostWithHttpInfo
      *
-     * Get customer services
+     * Send messages to the Bamba Advisor
      *
-     * @param  int $customerId Bamba customer unique identifier (required)
+     * @param  \Bamba\Model\AdvisorMessageRequest $advisorMessageRequest (optional)
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bamba\Model\Service|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bamba\Model\InlineResponse2001|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function customerCustomerIdServiceGetWithHttpInfo($customerId)
+    public function advisorMessagePostWithHttpInfo($advisorMessageRequest = null)
     {
-        $request = $this->customerCustomerIdServiceGetRequest($customerId);
+        $request = $this->advisorMessagePostRequest($advisorMessageRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -177,68 +177,92 @@ class CustomerApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Bamba\Model\Service' === '\SplFileObject') {
+                    if ('\Bamba\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Service', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Bamba\Model\Service';
+            $returnType = '\Bamba\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -256,7 +280,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Service',
+                        '\Bamba\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -264,7 +288,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +296,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -280,7 +304,23 @@ class CustomerApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Bamba\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -288,7 +328,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,18 +339,18 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomerIdServiceGetAsync
+     * Operation advisorMessagePostAsync
      *
-     * Get customer services
+     * Send messages to the Bamba Advisor
      *
-     * @param  int $customerId Bamba customer unique identifier (required)
+     * @param  \Bamba\Model\AdvisorMessageRequest $advisorMessageRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customerCustomerIdServiceGetAsync($customerId)
+    public function advisorMessagePostAsync($advisorMessageRequest = null)
     {
-        return $this->customerCustomerIdServiceGetAsyncWithHttpInfo($customerId)
+        return $this->advisorMessagePostAsyncWithHttpInfo($advisorMessageRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -319,19 +359,19 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomerIdServiceGetAsyncWithHttpInfo
+     * Operation advisorMessagePostAsyncWithHttpInfo
      *
-     * Get customer services
+     * Send messages to the Bamba Advisor
      *
-     * @param  int $customerId Bamba customer unique identifier (required)
+     * @param  \Bamba\Model\AdvisorMessageRequest $advisorMessageRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customerCustomerIdServiceGetAsyncWithHttpInfo($customerId)
+    public function advisorMessagePostAsyncWithHttpInfo($advisorMessageRequest = null)
     {
-        $returnType = '\Bamba\Model\Service';
-        $request = $this->customerCustomerIdServiceGetRequest($customerId);
+        $returnType = '\Bamba\Model\InlineResponse2001';
+        $request = $this->advisorMessagePostRequest($advisorMessageRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -367,23 +407,17 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'customerCustomerIdServiceGet'
+     * Create request for operation 'advisorMessagePost'
      *
-     * @param  int $customerId Bamba customer unique identifier (required)
+     * @param  \Bamba\Model\AdvisorMessageRequest $advisorMessageRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function customerCustomerIdServiceGetRequest($customerId)
+    public function advisorMessagePostRequest($advisorMessageRequest = null)
     {
-        // verify the required parameter 'customerId' is set
-        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $customerId when calling customerCustomerIdServiceGet'
-            );
-        }
 
-        $resourcePath = '/customer/{customerId}/service';
+        $resourcePath = '/advisor/message';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -392,14 +426,6 @@ class CustomerApi
 
 
 
-        // path params
-        if ($customerId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'customerId' . '}',
-                ObjectSerializer::toPathValue($customerId),
-                $resourcePath
-            );
-        }
 
 
         if ($multipart) {
@@ -409,12 +435,18 @@ class CustomerApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($advisorMessageRequest)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($advisorMessageRequest));
+            } else {
+                $httpBody = $advisorMessageRequest;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -457,7 +489,7 @@ class CustomerApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

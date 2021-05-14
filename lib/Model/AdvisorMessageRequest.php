@@ -1,6 +1,6 @@
 <?php
 /**
- * Message
+ * AdvisorMessageRequest
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * AdvisorMessageRequest Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdvisorMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'AdvisorMessageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'message' => 'string'
+        'customer' => '\Bamba\Model\AdvisorUser',
+        'message' => '\Bamba\Model\Message'
     ];
 
     /**
@@ -72,7 +72,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
+        'customer' => null,
         'message' => null
     ];
 
@@ -103,7 +103,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
+        'customer' => 'customer',
         'message' => 'message'
     ];
 
@@ -113,7 +113,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
+        'customer' => 'setCustomer',
         'message' => 'setMessage'
     ];
 
@@ -123,7 +123,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
+        'customer' => 'getCustomer',
         'message' => 'getMessage'
     ];
 
@@ -184,7 +184,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['customer'] = $data['customer'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
     }
 
@@ -197,8 +197,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['customer'] === null) {
+            $invalidProperties[] = "'customer' can't be null";
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
@@ -219,25 +219,25 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets customer
      *
-     * @return string
+     * @return \Bamba\Model\AdvisorUser
      */
-    public function getType()
+    public function getCustomer()
     {
-        return $this->container['type'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets type
+     * Sets customer
      *
-     * @param string $type Message type
+     * @param \Bamba\Model\AdvisorUser $customer customer
      *
      * @return self
      */
-    public function setType($type)
+    public function setCustomer($customer)
     {
-        $this->container['type'] = $type;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
@@ -245,7 +245,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return string
+     * @return \Bamba\Model\Message
      */
     public function getMessage()
     {
@@ -255,7 +255,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string $message The text of the message
+     * @param \Bamba\Model\Message $message message
      *
      * @return self
      */
