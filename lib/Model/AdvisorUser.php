@@ -1,6 +1,6 @@
 <?php
 /**
- * Message
+ * AdvisorUser
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * AdvisorUser Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'AdvisorUser';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'message' => 'string'
+        'name' => 'string',
+        'lastName' => 'string',
+        'cellphone' => 'string',
+        'uuid' => 'string'
     ];
 
     /**
@@ -72,8 +74,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'message' => null
+        'name' => null,
+        'lastName' => null,
+        'cellphone' => null,
+        'uuid' => null
     ];
 
     /**
@@ -103,8 +107,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'message' => 'message'
+        'name' => 'name',
+        'lastName' => 'lastName',
+        'cellphone' => 'cellphone',
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -113,8 +119,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'message' => 'setMessage'
+        'name' => 'setName',
+        'lastName' => 'setLastName',
+        'cellphone' => 'setCellphone',
+        'uuid' => 'setUuid'
     ];
 
     /**
@@ -123,8 +131,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'message' => 'getMessage'
+        'name' => 'getName',
+        'lastName' => 'getLastName',
+        'cellphone' => 'getCellphone',
+        'uuid' => 'getUuid'
     ];
 
     /**
@@ -184,8 +194,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['lastName'] = $data['lastName'] ?? null;
+        $this->container['cellphone'] = $data['cellphone'] ?? null;
+        $this->container['uuid'] = $data['uuid'] ?? null;
     }
 
     /**
@@ -197,11 +209,14 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['lastName'] === null) {
+            $invalidProperties[] = "'lastName' can't be null";
+        }
+        if ($this->container['cellphone'] === null) {
+            $invalidProperties[] = "'cellphone' can't be null";
         }
         return $invalidProperties;
     }
@@ -219,49 +234,97 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets name
      *
      * @return string
      */
-    public function getType()
+    public function getName()
     {
-        return $this->container['type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets type
+     * Sets name
      *
-     * @param string $type Message type
+     * @param string $name The customer's name
      *
      * @return self
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->container['type'] = $type;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets lastName
      *
      * @return string
      */
-    public function getMessage()
+    public function getLastName()
     {
-        return $this->container['message'];
+        return $this->container['lastName'];
     }
 
     /**
-     * Sets message
+     * Sets lastName
      *
-     * @param string $message The text of the message
+     * @param string $lastName The customer's last name
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setLastName($lastName)
     {
-        $this->container['message'] = $message;
+        $this->container['lastName'] = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Gets cellphone
+     *
+     * @return string
+     */
+    public function getCellphone()
+    {
+        return $this->container['cellphone'];
+    }
+
+    /**
+     * Sets cellphone
+     *
+     * @param string $cellphone The customer's cellphone number
+     *
+     * @return self
+     */
+    public function setCellphone($cellphone)
+    {
+        $this->container['cellphone'] = $cellphone;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string|null
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string|null $uuid Customer UUID assigned by Bamba
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
