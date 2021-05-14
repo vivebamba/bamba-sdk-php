@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * InlineResponse2001
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * InlineResponse2001 Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Error implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Error';
+    protected static $openAPIModelName = 'inline_response_200_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'string'
+        'success' => 'string'
     ];
 
     /**
@@ -71,7 +71,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null
+        'success' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description'
+        'success' => 'success'
     ];
 
     /**
@@ -110,7 +110,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription'
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -119,7 +119,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription'
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -179,7 +179,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = $data['description'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
     }
 
     /**
@@ -207,25 +207,25 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets description
+     * Gets success
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getSuccess()
     {
-        return $this->container['description'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets description
+     * Sets success
      *
-     * @param string|null $description The error description
+     * @param string|null $success success
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setSuccess($success)
     {
-        $this->container['description'] = $description;
+        $this->container['success'] = $success;
 
         return $this;
     }

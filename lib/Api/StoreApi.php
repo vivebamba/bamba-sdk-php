@@ -124,7 +124,7 @@ class StoreApi
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bamba\Model\InlineResponse200|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|object
+     * @return \Bamba\Model\InlineResponse200|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse
      */
     public function storeOrdersPost($order = null)
     {
@@ -141,7 +141,7 @@ class StoreApi
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bamba\Model\InlineResponse200|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bamba\Model\InlineResponse200|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function storeOrdersPostWithHttpInfo($order = null)
     {
@@ -189,50 +189,50 @@ class StoreApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 500:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                case 405:
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -245,6 +245,18 @@ class StoreApi
 
                     return [
                         ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -276,7 +288,7 @@ class StoreApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -284,7 +296,7 @@ class StoreApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -292,15 +304,15 @@ class StoreApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
-                case 500:
+                case 405:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,6 +321,14 @@ class StoreApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -484,7 +504,7 @@ class StoreApi
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bamba\Model\Product[]|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error
+     * @return \Bamba\Model\Product[]|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse
      */
     public function storeProductsGet()
     {
@@ -500,7 +520,7 @@ class StoreApi
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bamba\Model\Product[]|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error|\Bamba\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bamba\Model\Product[]|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function storeProductsGetWithHttpInfo()
     {
@@ -548,50 +568,62 @@ class StoreApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Bamba\Model\Error' === '\SplFileObject') {
+                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -623,7 +655,7 @@ class StoreApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -631,7 +663,7 @@ class StoreApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -639,7 +671,15 @@ class StoreApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -647,7 +687,7 @@ class StoreApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\Error',
+                        '\Bamba\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

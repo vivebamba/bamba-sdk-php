@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageTest
+ * InlineResponse2001Test
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MessageTest Class Doc Comment
+ * InlineResponse2001Test Class Doc Comment
  *
  * @category    Class
- * @description Message
+ * @description InlineResponse2001
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MessageTest extends TestCase
+class InlineResponse2001Test extends TestCase
 {
 
     /**
@@ -72,27 +72,18 @@ class MessageTest extends TestCase
     }
 
     /**
-     * Test "Message"
+     * Test "InlineResponse2001"
      */
-    public function testMessage()
+    public function testInlineResponse2001()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "success"
      */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
+    public function testPropertySuccess()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,10 +1,9 @@
-# # Message
+# # InlineResponse2001
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Message type |
-**message** | **string** | The text of the message |
+**success** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

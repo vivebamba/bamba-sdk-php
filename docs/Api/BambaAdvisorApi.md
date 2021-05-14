@@ -1,21 +1,21 @@
-# Bamba\BambaAgentApi
+# Bamba\BambaAdvisorApi
 
 All URIs are relative to https://sandbox.vivebamba.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bambaAgentMessagePost()**](BambaAgentApi.md#bambaAgentMessagePost) | **POST** /bamba-agent/message | Bamba agent
+[**advisorMessagePost()**](BambaAdvisorApi.md#advisorMessagePost) | **POST** /advisor/message | Send messages to the Bamba Advisor
 
 
-## `bambaAgentMessagePost()`
+## `advisorMessagePost()`
 
 ```php
-bambaAgentMessagePost($message)
+advisorMessagePost($advisorMessageRequest): \Bamba\Model\InlineResponse2001
 ```
 
-Bamba agent
+Send messages to the Bamba Advisor
 
-All related with Bamba Agent
+Send mesages to the Bamba Advisor from new or existing customers
 
 ### Example
 
@@ -30,18 +30,19 @@ $config = Bamba\Configuration::getDefaultConfiguration()->setApiKey('x-api-key',
 // $config = Bamba\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new Bamba\Api\BambaAgentApi(
+$apiInstance = new Bamba\Api\BambaAdvisorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$message = new \Bamba\Model\Message(); // \Bamba\Model\Message
+$advisorMessageRequest = new \Bamba\Model\AdvisorMessageRequest(); // \Bamba\Model\AdvisorMessageRequest
 
 try {
-    $apiInstance->bambaAgentMessagePost($message);
+    $result = $apiInstance->advisorMessagePost($advisorMessageRequest);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BambaAgentApi->bambaAgentMessagePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BambaAdvisorApi->advisorMessagePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -49,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **message** | [**\Bamba\Model\Message**](../Model/Message.md)|  | [optional]
+ **advisorMessageRequest** | [**\Bamba\Model\AdvisorMessageRequest**](../Model/AdvisorMessageRequest.md)|  | [optional]
 
 ### Return type
 
-void (empty response body)
+[**\Bamba\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 

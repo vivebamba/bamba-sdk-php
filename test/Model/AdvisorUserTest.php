@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorTest
+ * AdvisorUserTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorTest Class Doc Comment
+ * AdvisorUserTest Class Doc Comment
  *
  * @category    Class
- * @description Error
+ * @description AdvisorUser
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorTest extends TestCase
+class AdvisorUserTest extends TestCase
 {
 
     /**
@@ -72,18 +72,45 @@ class ErrorTest extends TestCase
     }
 
     /**
-     * Test "Error"
+     * Test "AdvisorUser"
      */
-    public function testError()
+    public function testAdvisorUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "name"
      */
-    public function testPropertyDescription()
+    public function testPropertyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "lastName"
+     */
+    public function testPropertyLastName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cellphone"
+     */
+    public function testPropertyCellphone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "uuid"
+     */
+    public function testPropertyUuid()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
