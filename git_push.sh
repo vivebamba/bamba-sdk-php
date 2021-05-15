@@ -24,7 +24,7 @@ if [ "$git_repo_id" = "" ]; then
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="Bamba SDK for PHP"
+    release_note="v1.0.5"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 
