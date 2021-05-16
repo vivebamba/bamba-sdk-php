@@ -81,6 +81,21 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**storeOrdersPost**](docs/Api/StoreApi.md#storeorderspost) | **POST** /store/orders | Place an order
 *StoreApi* | [**storeProductsGet**](docs/Api/StoreApi.md#storeproductsget) | **GET** /store/products | Get products
 
+
+### Bamba Advisor
+
+The advisor Bamba follows the basic concept of communication:
+
+Send a message: Sender sends a message to Bamba Advisor
+Receive the response: Bamba Advisor sends the response to Issuer
+
+You can send a message to the Bamba advisor using the advisorMessagePost method, then you need to listen for the response to your message, to achieve this it is necessary that you expose in your application a url (webhook) where the advisor can send you the responses to your messages.
+
+This webhook should wait for notification via POST.
+
+Once you have the url where you want to receive the responses from the Bamba advisor, send us the url by email to desarrollo@vivebamba.com so that we can register the webhook for your integration and you can receive the responses.
+
+
 ## Models
 
 - [AdvisorMessageRequest](docs/Model/AdvisorMessageRequest.md)
