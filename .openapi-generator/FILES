@@ -5,6 +5,7 @@
 README.md
 composer.json
 docs/Api/BambaAdvisorApi.md
+docs/Api/CustomerApi.md
 docs/Api/StoreApi.md
 docs/Model/AdvisorMessageRequest.md
 docs/Model/AdvisorUser.md
@@ -20,6 +21,7 @@ docs/Model/ProductBundleItems.md
 docs/Model/Service.md
 git_push.sh
 lib/Api/BambaAdvisorApi.php
+lib/Api/CustomerApi.php
 lib/Api/StoreApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -40,6 +42,7 @@ lib/Model/Service.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/BambaAdvisorApiTest.php
+test/Api/CustomerApiTest.php
 test/Api/StoreApiTest.php
 test/Model/AdvisorMessageRequestTest.php
 test/Model/AdvisorUserTest.php

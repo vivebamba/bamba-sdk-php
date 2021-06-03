@@ -1,6 +1,6 @@
 <?php
 /**
- * StoreApi
+ * CustomerApi
  * PHP version 7.2
  *
  * @category Class
@@ -40,14 +40,14 @@ use Bamba\HeaderSelector;
 use Bamba\ObjectSerializer;
 
 /**
- * StoreApi Class Doc Comment
+ * CustomerApi Class Doc Comment
  *
  * @category Class
  * @package  Bamba
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class StoreApi
+class CustomerApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,36 @@ class StoreApi
     }
 
     /**
-     * Operation storeOrdersPost
+     * Operation customerCustomerIdServicesGet
      *
-     * Place an order
+     * Get customer services
      *
-     * @param  \Bamba\Model\Order $order order (optional)
+     * @param  int $customerId Bamba customer unique identifier (required)
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bamba\Model\InlineResponse200|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse
+     * @return \Bamba\Model\Service|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse
      */
-    public function storeOrdersPost($order = null)
+    public function customerCustomerIdServicesGet($customerId)
     {
-        list($response) = $this->storeOrdersPostWithHttpInfo($order);
+        list($response) = $this->customerCustomerIdServicesGetWithHttpInfo($customerId);
         return $response;
     }
 
     /**
-     * Operation storeOrdersPostWithHttpInfo
+     * Operation customerCustomerIdServicesGetWithHttpInfo
      *
-     * Place an order
+     * Get customer services
      *
-     * @param  \Bamba\Model\Order $order (optional)
+     * @param  int $customerId Bamba customer unique identifier (required)
      *
      * @throws \Bamba\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bamba\Model\InlineResponse200|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bamba\Model\Service|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|object|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function storeOrdersPostWithHttpInfo($order = null)
+    public function customerCustomerIdServicesGetWithHttpInfo($customerId)
     {
-        $request = $this->storeOrdersPostRequest($order);
+        $request = $this->customerCustomerIdServicesGetRequest($customerId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -177,14 +177,14 @@ class StoreApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Bamba\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Bamba\Model\Service' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Bamba\Model\Service', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -262,7 +262,7 @@ class StoreApi
                     ];
             }
 
-            $returnType = '\Bamba\Model\InlineResponse200';
+            $returnType = '\Bamba\Model\Service';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -280,7 +280,7 @@ class StoreApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bamba\Model\InlineResponse200',
+                        '\Bamba\Model\Service',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -339,18 +339,18 @@ class StoreApi
     }
 
     /**
-     * Operation storeOrdersPostAsync
+     * Operation customerCustomerIdServicesGetAsync
      *
-     * Place an order
+     * Get customer services
      *
-     * @param  \Bamba\Model\Order $order (optional)
+     * @param  int $customerId Bamba customer unique identifier (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function storeOrdersPostAsync($order = null)
+    public function customerCustomerIdServicesGetAsync($customerId)
     {
-        return $this->storeOrdersPostAsyncWithHttpInfo($order)
+        return $this->customerCustomerIdServicesGetAsyncWithHttpInfo($customerId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -359,19 +359,19 @@ class StoreApi
     }
 
     /**
-     * Operation storeOrdersPostAsyncWithHttpInfo
+     * Operation customerCustomerIdServicesGetAsyncWithHttpInfo
      *
-     * Place an order
+     * Get customer services
      *
-     * @param  \Bamba\Model\Order $order (optional)
+     * @param  int $customerId Bamba customer unique identifier (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function storeOrdersPostAsyncWithHttpInfo($order = null)
+    public function customerCustomerIdServicesGetAsyncWithHttpInfo($customerId)
     {
-        $returnType = '\Bamba\Model\InlineResponse200';
-        $request = $this->storeOrdersPostRequest($order);
+        $returnType = '\Bamba\Model\Service';
+        $request = $this->customerCustomerIdServicesGetRequest($customerId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -407,17 +407,23 @@ class StoreApi
     }
 
     /**
-     * Create request for operation 'storeOrdersPost'
+     * Create request for operation 'customerCustomerIdServicesGet'
      *
-     * @param  \Bamba\Model\Order $order (optional)
+     * @param  int $customerId Bamba customer unique identifier (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function storeOrdersPostRequest($order = null)
+    public function customerCustomerIdServicesGetRequest($customerId)
     {
+        // verify the required parameter 'customerId' is set
+        if ($customerId === null || (is_array($customerId) && count($customerId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customerId when calling customerCustomerIdServicesGet'
+            );
+        }
 
-        $resourcePath = '/store/orders';
+        $resourcePath = '/customer/{customerId}/services';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -426,362 +432,14 @@ class StoreApi
 
 
 
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
+        // path params
+        if ($customerId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customerId' . '}',
+                ObjectSerializer::toPathValue($customerId),
+                $resourcePath
             );
         }
-
-        // for model (json/xml)
-        if (isset($order)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($order));
-            } else {
-                $httpBody = $order;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation storeProductsGet
-     *
-     * Get products
-     *
-     *
-     * @throws \Bamba\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Bamba\Model\Product[]|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse
-     */
-    public function storeProductsGet()
-    {
-        list($response) = $this->storeProductsGetWithHttpInfo();
-        return $response;
-    }
-
-    /**
-     * Operation storeProductsGetWithHttpInfo
-     *
-     * Get products
-     *
-     *
-     * @throws \Bamba\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Bamba\Model\Product[]|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse|\Bamba\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function storeProductsGetWithHttpInfo()
-    {
-        $request = $this->storeProductsGetRequest();
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Bamba\Model\Product[]' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\Product[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 405:
-                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\Bamba\Model\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Bamba\Model\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Bamba\Model\Product[]';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\Product[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 405:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Bamba\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation storeProductsGetAsync
-     *
-     * Get products
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function storeProductsGetAsync()
-    {
-        return $this->storeProductsGetAsyncWithHttpInfo()
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation storeProductsGetAsyncWithHttpInfo
-     *
-     * Get products
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function storeProductsGetAsyncWithHttpInfo()
-    {
-        $returnType = '\Bamba\Model\Product[]';
-        $request = $this->storeProductsGetRequest();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'storeProductsGet'
-     *
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function storeProductsGetRequest()
-    {
-
-        $resourcePath = '/store/products';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
 
 
         if ($multipart) {
