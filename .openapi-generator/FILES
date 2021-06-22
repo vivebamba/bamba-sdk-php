@@ -19,6 +19,7 @@ docs/Model/OrderProducts.md
 docs/Model/Product.md
 docs/Model/ProductBundleItems.md
 docs/Model/Service.md
+docs/Model/Subscription.md
 git_push.sh
 lib/Api/BambaAdvisorApi.php
 lib/Api/CustomerApi.php
@@ -39,6 +40,7 @@ lib/Model/OrderProducts.php
 lib/Model/Product.php
 lib/Model/ProductBundleItems.php
 lib/Model/Service.php
+lib/Model/Subscription.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/BambaAdvisorApiTest.php
@@ -56,3 +58,4 @@ test/Model/OrderTest.php
 test/Model/ProductBundleItemsTest.php
 test/Model/ProductTest.php
 test/Model/ServiceTest.php
+test/Model/SubscriptionTest.php

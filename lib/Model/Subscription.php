@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductBundleItems
+ * Subscription
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * ProductBundleItems Class Doc Comment
+ * Subscription Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializable
+class Subscription implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Product_bundleItems';
+    protected static $openAPIModelName = 'Subscription';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'string'
+        'sku' => 'string',
+        'name' => 'string',
+        'state' => 'string',
+        'validFrom' => '\DateTime',
+        'validTo' => '\DateTime',
+        'relatedServices' => '\Bamba\Model\Service[]'
     ];
 
     /**
@@ -71,7 +76,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null
+        'sku' => null,
+        'name' => null,
+        'state' => null,
+        'validFrom' => 'date-time',
+        'validTo' => 'date-time',
+        'relatedServices' => null
     ];
 
     /**
@@ -101,7 +111,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description'
+        'sku' => 'sku',
+        'name' => 'name',
+        'state' => 'state',
+        'validFrom' => 'validFrom',
+        'validTo' => 'validTo',
+        'relatedServices' => 'relatedServices'
     ];
 
     /**
@@ -110,7 +125,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription'
+        'sku' => 'setSku',
+        'name' => 'setName',
+        'state' => 'setState',
+        'validFrom' => 'setValidFrom',
+        'validTo' => 'setValidTo',
+        'relatedServices' => 'setRelatedServices'
     ];
 
     /**
@@ -119,7 +139,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription'
+        'sku' => 'getSku',
+        'name' => 'getName',
+        'state' => 'getState',
+        'validFrom' => 'getValidFrom',
+        'validTo' => 'getValidTo',
+        'relatedServices' => 'getRelatedServices'
     ];
 
     /**
@@ -179,7 +204,12 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = $data['description'] ?? null;
+        $this->container['sku'] = $data['sku'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
+        $this->container['validFrom'] = $data['validFrom'] ?? null;
+        $this->container['validTo'] = $data['validTo'] ?? null;
+        $this->container['relatedServices'] = $data['relatedServices'] ?? null;
     }
 
     /**
@@ -191,6 +221,24 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['sku'] === null) {
+            $invalidProperties[] = "'sku' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['validFrom'] === null) {
+            $invalidProperties[] = "'validFrom' can't be null";
+        }
+        if ($this->container['validTo'] === null) {
+            $invalidProperties[] = "'validTo' can't be null";
+        }
+        if ($this->container['relatedServices'] === null) {
+            $invalidProperties[] = "'relatedServices' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,25 +255,145 @@ class ProductBundleItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets description
+     * Gets sku
      *
-     * @return string|null
+     * @return string
      */
-    public function getDescription()
+    public function getSku()
     {
-        return $this->container['description'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets description
+     * Sets sku
      *
-     * @param string|null $description The description of bundle content
+     * @param string $sku The SKU from product related to the subscription
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setSku($sku)
     {
-        $this->container['description'] = $description;
+        $this->container['sku'] = $sku;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The product name related to the subscription
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state The state of the subscription
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets validFrom
+     *
+     * @return \DateTime
+     */
+    public function getValidFrom()
+    {
+        return $this->container['validFrom'];
+    }
+
+    /**
+     * Sets validFrom
+     *
+     * @param \DateTime $validFrom The date and time (ISO 8601 format) of start of validity of the subscription
+     *
+     * @return self
+     */
+    public function setValidFrom($validFrom)
+    {
+        $this->container['validFrom'] = $validFrom;
+
+        return $this;
+    }
+
+    /**
+     * Gets validTo
+     *
+     * @return \DateTime
+     */
+    public function getValidTo()
+    {
+        return $this->container['validTo'];
+    }
+
+    /**
+     * Sets validTo
+     *
+     * @param \DateTime $validTo The date and time (ISO 8601 format) of end of validity of the subscription
+     *
+     * @return self
+     */
+    public function setValidTo($validTo)
+    {
+        $this->container['validTo'] = $validTo;
+
+        return $this;
+    }
+
+    /**
+     * Gets relatedServices
+     *
+     * @return \Bamba\Model\Service[]
+     */
+    public function getRelatedServices()
+    {
+        return $this->container['relatedServices'];
+    }
+
+    /**
+     * Sets relatedServices
+     *
+     * @param \Bamba\Model\Service[] $relatedServices relatedServices
+     *
+     * @return self
+     */
+    public function setRelatedServices($relatedServices)
+    {
+        $this->container['relatedServices'] = $relatedServices;
 
         return $this;
     }

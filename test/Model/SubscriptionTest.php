@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageTest
+ * SubscriptionTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MessageTest Class Doc Comment
+ * SubscriptionTest Class Doc Comment
  *
  * @category    Class
- * @description Message
+ * @description Subscription
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MessageTest extends TestCase
+class SubscriptionTest extends TestCase
 {
 
     /**
@@ -72,27 +72,63 @@ class MessageTest extends TestCase
     }
 
     /**
-     * Test "Message"
+     * Test "Subscription"
      */
-    public function testMessage()
+    public function testSubscription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "sku"
      */
-    public function testPropertyType()
+    public function testPropertySku()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "name"
      */
-    public function testPropertyMessage()
+    public function testPropertyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "state"
+     */
+    public function testPropertyState()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "validFrom"
+     */
+    public function testPropertyValidFrom()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "validTo"
+     */
+    public function testPropertyValidTo()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "relatedServices"
+     */
+    public function testPropertyRelatedServices()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
