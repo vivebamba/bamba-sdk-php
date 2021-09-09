@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorResponse
+ * PaymentParams
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * ErrorResponse Class Doc Comment
+ * PaymentParams Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentParams implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorResponse';
+    protected static $openAPIModelName = 'paymentParams';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'string[]'
+        'mediaTypeKey' => 'string',
+        'mediaTypeValue' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'mediaTypeKey' => null,
+        'mediaTypeValue' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'mediaTypeKey' => 'mediaTypeKey',
+        'mediaTypeValue' => 'mediaTypeValue'
     ];
 
     /**
@@ -110,7 +113,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'mediaTypeKey' => 'setMediaTypeKey',
+        'mediaTypeValue' => 'setMediaTypeValue'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'mediaTypeKey' => 'getMediaTypeKey',
+        'mediaTypeValue' => 'getMediaTypeValue'
     ];
 
     /**
@@ -179,7 +184,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = $data['errors'] ?? null;
+        $this->container['mediaTypeKey'] = $data['mediaTypeKey'] ?? null;
+        $this->container['mediaTypeValue'] = $data['mediaTypeValue'] ?? null;
     }
 
     /**
@@ -191,6 +197,12 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['mediaTypeKey'] === null) {
+            $invalidProperties[] = "'mediaTypeKey' can't be null";
+        }
+        if ($this->container['mediaTypeValue'] === null) {
+            $invalidProperties[] = "'mediaTypeValue' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,25 +219,49 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets errors
+     * Gets mediaTypeKey
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getErrors()
+    public function getMediaTypeKey()
     {
-        return $this->container['errors'];
+        return $this->container['mediaTypeKey'];
     }
 
     /**
-     * Sets errors
+     * Sets mediaTypeKey
      *
-     * @param string[]|null $errors The error description
+     * @param string $mediaTypeKey Media type key to make the payment, available options CREDIT_CARD, DEBIT_CARD, PHONE_NUMBER, EMAIL, CLABE, CACAO, CUSTOMER_NUMBER, ACCOUNT_NUMBER
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setMediaTypeKey($mediaTypeKey)
     {
-        $this->container['errors'] = $errors;
+        $this->container['mediaTypeKey'] = $mediaTypeKey;
+
+        return $this;
+    }
+
+    /**
+     * Gets mediaTypeValue
+     *
+     * @return string
+     */
+    public function getMediaTypeValue()
+    {
+        return $this->container['mediaTypeValue'];
+    }
+
+    /**
+     * Sets mediaTypeValue
+     *
+     * @param string $mediaTypeValue The value for the selected media type, example if mediaTypeKey is EMAIL here it goes customer@domain.com
+     *
+     * @return self
+     */
+    public function setMediaTypeValue($mediaTypeValue)
+    {
+        $this->container['mediaTypeValue'] = $mediaTypeValue;
 
         return $this;
     }

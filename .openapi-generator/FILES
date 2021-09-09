@@ -16,6 +16,7 @@ docs/Model/InlineResponse2001.md
 docs/Model/Message.md
 docs/Model/Order.md
 docs/Model/OrderProducts.md
+docs/Model/PaymentParams.md
 docs/Model/Product.md
 docs/Model/ProductBundleItems.md
 docs/Model/Service.md
@@ -37,6 +38,7 @@ lib/Model/Message.php
 lib/Model/ModelInterface.php
 lib/Model/Order.php
 lib/Model/OrderProducts.php
+lib/Model/PaymentParams.php
 lib/Model/Product.php
 lib/Model/ProductBundleItems.php
 lib/Model/Service.php
@@ -55,6 +57,7 @@ test/Model/InlineResponse200Test.php
 test/Model/MessageTest.php
 test/Model/OrderProductsTest.php
 test/Model/OrderTest.php
+test/Model/PaymentParamsTest.php
 test/Model/ProductBundleItemsTest.php
 test/Model/ProductTest.php
 test/Model/ServiceTest.php
