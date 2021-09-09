@@ -24,7 +24,7 @@ if [ "$git_repo_id" = "" ]; then
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="v1.2.5"
+    release_note="optionally add payment params to order endpoint"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 
