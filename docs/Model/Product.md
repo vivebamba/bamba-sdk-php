@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **sku** | **string** | A unique identifier for the product variant | [optional]
 **name** | **string** | The name of the product | [optional]
 **price** | **double** | The price of the product | [optional]
-**type** | **string** | Type of the product, it can be *bundle* or *not_bundle* | [optional]
 **image** | **string** | Image of the product | [optional]
-**bundleItems** | [**\Bamba\Model\ProductBundleItems[]**](ProductBundleItems.md) | The collection of bundle items related to *bundle* products | [optional]
+**brief** | **string** | Plan benefit summary | [optional]
+**description** | [**AnyOfSectionWhatIncludesSectionWhatNotIncludes[]**](AnyOfSectionWhatIncludesSectionWhatNotIncludes.md) |  | [optional]
+**terms** | **string** | Link to terms and conditions detailed by product | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

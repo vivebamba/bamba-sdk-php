@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentParamsTest
+ * InlineResponse4221Test
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PaymentParamsTest Class Doc Comment
+ * InlineResponse4221Test Class Doc Comment
  *
  * @category    Class
- * @description PaymentParams
+ * @description InlineResponse4221
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PaymentParamsTest extends TestCase
+class InlineResponse4221Test extends TestCase
 {
 
     /**
@@ -72,27 +72,18 @@ class PaymentParamsTest extends TestCase
     }
 
     /**
-     * Test "PaymentParams"
+     * Test "InlineResponse4221"
      */
-    public function testPaymentParams()
+    public function testInlineResponse4221()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "mediaTypeKey"
+     * Test attribute "errors"
      */
-    public function testPropertyMediaTypeKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "mediaTypeValue"
-     */
-    public function testPropertyMediaTypeValue()
+    public function testPropertyErrors()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

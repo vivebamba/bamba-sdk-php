@@ -1,6 +1,6 @@
 <?php
 /**
- * AdvisorUser
+ * SectionWhatIncludes
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * AdvisorUser Class Doc Comment
+ * SectionWhatIncludes Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
+class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdvisorUser';
+    protected static $openAPIModelName = 'SectionWhatIncludes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'lastName' => 'string',
-        'cellphone' => 'string',
-        'uuid' => 'string'
+        'section' => 'string',
+        'details' => 'AnyOfObjectObject[]'
     ];
 
     /**
@@ -74,10 +72,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'lastName' => null,
-        'cellphone' => null,
-        'uuid' => null
+        'section' => null,
+        'details' => null
     ];
 
     /**
@@ -107,10 +103,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'lastName' => 'lastName',
-        'cellphone' => 'cellphone',
-        'uuid' => 'uuid'
+        'section' => 'section',
+        'details' => 'details'
     ];
 
     /**
@@ -119,10 +113,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'lastName' => 'setLastName',
-        'cellphone' => 'setCellphone',
-        'uuid' => 'setUuid'
+        'section' => 'setSection',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -131,10 +123,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'lastName' => 'getLastName',
-        'cellphone' => 'getCellphone',
-        'uuid' => 'getUuid'
+        'section' => 'getSection',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -194,10 +184,8 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['lastName'] = $data['lastName'] ?? null;
-        $this->container['cellphone'] = $data['cellphone'] ?? null;
-        $this->container['uuid'] = $data['uuid'] ?? null;
+        $this->container['section'] = $data['section'] ?? null;
+        $this->container['details'] = $data['details'] ?? null;
     }
 
     /**
@@ -209,15 +197,6 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['lastName'] === null) {
-            $invalidProperties[] = "'lastName' can't be null";
-        }
-        if ($this->container['cellphone'] === null) {
-            $invalidProperties[] = "'cellphone' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,97 +213,49 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The customer's name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['lastName'];
-    }
-
-    /**
-     * Sets lastName
-     *
-     * @param string $lastName The customer's last name
-     *
-     * @return self
-     */
-    public function setLastName($lastName)
-    {
-        $this->container['lastName'] = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Gets cellphone
-     *
-     * @return string
-     */
-    public function getCellphone()
-    {
-        return $this->container['cellphone'];
-    }
-
-    /**
-     * Sets cellphone
-     *
-     * @param string $cellphone The customer's cellphone number
-     *
-     * @return self
-     */
-    public function setCellphone($cellphone)
-    {
-        $this->container['cellphone'] = $cellphone;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
+     * Gets section
      *
      * @return string|null
      */
-    public function getUuid()
+    public function getSection()
     {
-        return $this->container['uuid'];
+        return $this->container['section'];
     }
 
     /**
-     * Sets uuid
+     * Sets section
      *
-     * @param string|null $uuid Customer UUID assigned by Bamba
+     * @param string|null $section Section title
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setSection($section)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['section'] = $section;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return AnyOfObjectObject[]|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param AnyOfObjectObject[]|null $details details
+     *
+     * @return self
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * AdvisorUser
+ * InlineResponse422
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * AdvisorUser Class Doc Comment
+ * InlineResponse422 Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdvisorUser';
+    protected static $openAPIModelName = 'inline_response_422';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'lastName' => 'string',
-        'cellphone' => 'string',
-        'uuid' => 'string'
+        'errors' => '\Bamba\Model\InlineResponse422Errors[]'
     ];
 
     /**
@@ -74,10 +71,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'lastName' => null,
-        'cellphone' => null,
-        'uuid' => null
+        'errors' => null
     ];
 
     /**
@@ -107,10 +101,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'lastName' => 'lastName',
-        'cellphone' => 'cellphone',
-        'uuid' => 'uuid'
+        'errors' => 'errors'
     ];
 
     /**
@@ -119,10 +110,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'lastName' => 'setLastName',
-        'cellphone' => 'setCellphone',
-        'uuid' => 'setUuid'
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -131,10 +119,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'lastName' => 'getLastName',
-        'cellphone' => 'getCellphone',
-        'uuid' => 'getUuid'
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -194,10 +179,7 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['lastName'] = $data['lastName'] ?? null;
-        $this->container['cellphone'] = $data['cellphone'] ?? null;
-        $this->container['uuid'] = $data['uuid'] ?? null;
+        $this->container['errors'] = $data['errors'] ?? null;
     }
 
     /**
@@ -209,15 +191,6 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['lastName'] === null) {
-            $invalidProperties[] = "'lastName' can't be null";
-        }
-        if ($this->container['cellphone'] === null) {
-            $invalidProperties[] = "'cellphone' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,97 +207,25 @@ class AdvisorUser implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets errors
      *
-     * @return string
+     * @return \Bamba\Model\InlineResponse422Errors[]|null
      */
-    public function getName()
+    public function getErrors()
     {
-        return $this->container['name'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets name
+     * Sets errors
      *
-     * @param string $name The customer's name
+     * @param \Bamba\Model\InlineResponse422Errors[]|null $errors errors
      *
      * @return self
      */
-    public function setName($name)
+    public function setErrors($errors)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['lastName'];
-    }
-
-    /**
-     * Sets lastName
-     *
-     * @param string $lastName The customer's last name
-     *
-     * @return self
-     */
-    public function setLastName($lastName)
-    {
-        $this->container['lastName'] = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Gets cellphone
-     *
-     * @return string
-     */
-    public function getCellphone()
-    {
-        return $this->container['cellphone'];
-    }
-
-    /**
-     * Sets cellphone
-     *
-     * @param string $cellphone The customer's cellphone number
-     *
-     * @return self
-     */
-    public function setCellphone($cellphone)
-    {
-        $this->container['cellphone'] = $cellphone;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string|null
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string|null $uuid Customer UUID assigned by Bamba
-     *
-     * @return self
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

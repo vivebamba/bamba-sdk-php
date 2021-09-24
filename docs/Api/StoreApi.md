@@ -4,14 +4,14 @@ All URIs are relative to https://sandbox.vivebamba.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**storeOrdersPost()**](StoreApi.md#storeOrdersPost) | **POST** /store/orders | Place an order
-[**storeProductsGet()**](StoreApi.md#storeProductsGet) | **GET** /store/products | Get products
+[**v1StoreOrdersPost()**](StoreApi.md#v1StoreOrdersPost) | **POST** /v1/store/orders | Place an order
+[**v1StoreProductsGet()**](StoreApi.md#v1StoreProductsGet) | **GET** /v1/store/products | Get products
 
 
-## `storeOrdersPost()`
+## `v1StoreOrdersPost()`
 
 ```php
-storeOrdersPost($order): \Bamba\Model\InlineResponse200
+v1StoreOrdersPost($order): \Bamba\Model\InlineResponse200
 ```
 
 Place an order
@@ -40,10 +40,10 @@ $apiInstance = new Bamba\Api\StoreApi(
 $order = new \Bamba\Model\Order(); // \Bamba\Model\Order
 
 try {
-    $result = $apiInstance->storeOrdersPost($order);
+    $result = $apiInstance->v1StoreOrdersPost($order);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StoreApi->storeOrdersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StoreApi->v1StoreOrdersPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -70,10 +70,10 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `storeProductsGet()`
+## `v1StoreProductsGet()`
 
 ```php
-storeProductsGet(): \Bamba\Model\Product[]
+v1StoreProductsGet(): \Bamba\Model\Product[]
 ```
 
 Get products
@@ -101,10 +101,10 @@ $apiInstance = new Bamba\Api\StoreApi(
 );
 
 try {
-    $result = $apiInstance->storeProductsGet();
+    $result = $apiInstance->v1StoreProductsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StoreApi->storeProductsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StoreApi->v1StoreProductsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
