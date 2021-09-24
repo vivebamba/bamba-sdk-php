@@ -1,6 +1,6 @@
 <?php
 /**
- * SectionWhatNotIncludes
+ * ProductDescription
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * SectionWhatNotIncludes Class Doc Comment
+ * ProductDescription Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SectionWhatNotIncludes implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductDescription implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SectionWhatNotIncludes implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SectionWhatNotIncludes';
+    protected static $openAPIModelName = 'Product_description';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,7 @@ class SectionWhatNotIncludes implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'section' => 'string',
-        'details' => 'AnyOfObjectObject[]'
+        'details' => '\Bamba\Model\ProductDetails'
     ];
 
     /**
@@ -239,7 +239,7 @@ class SectionWhatNotIncludes implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets details
      *
-     * @return AnyOfObjectObject[]|null
+     * @return \Bamba\Model\ProductDetails|null
      */
     public function getDetails()
     {
@@ -249,7 +249,7 @@ class SectionWhatNotIncludes implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets details
      *
-     * @param AnyOfObjectObject[]|null $details details
+     * @param \Bamba\Model\ProductDetails|null $details details
      *
      * @return self
      */

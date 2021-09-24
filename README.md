@@ -99,8 +99,8 @@ Class | Method | HTTP request | Description
 - [OrderProducts](docs/Model/OrderProducts.md)
 - [PaymentParams](docs/Model/PaymentParams.md)
 - [Product](docs/Model/Product.md)
-- [SectionWhatIncludes](docs/Model/SectionWhatIncludes.md)
-- [SectionWhatNotIncludes](docs/Model/SectionWhatNotIncludes.md)
+- [ProductDescription](docs/Model/ProductDescription.md)
+- [ProductDetails](docs/Model/ProductDetails.md)
 - [Service](docs/Model/Service.md)
 - [Subscription](docs/Model/Subscription.md)
 

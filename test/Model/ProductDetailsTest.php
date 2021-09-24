@@ -1,6 +1,6 @@
 <?php
 /**
- * SectionWhatIncludesTest
+ * ProductDetailsTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SectionWhatIncludesTest Class Doc Comment
+ * ProductDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description SectionWhatIncludes
+ * @description ProductDetails
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SectionWhatIncludesTest extends TestCase
+class ProductDetailsTest extends TestCase
 {
 
     /**
@@ -72,27 +72,27 @@ class SectionWhatIncludesTest extends TestCase
     }
 
     /**
-     * Test "SectionWhatIncludes"
+     * Test "ProductDetails"
      */
-    public function testSectionWhatIncludes()
+    public function testProductDetails()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "section"
+     * Test attribute "head"
      */
-    public function testPropertySection()
+    public function testPropertyHead()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "details"
+     * Test attribute "body"
      */
-    public function testPropertyDetails()
+    public function testPropertyBody()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

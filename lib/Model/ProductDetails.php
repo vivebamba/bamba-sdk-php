@@ -1,6 +1,6 @@
 <?php
 /**
- * SectionWhatIncludes
+ * ProductDetails
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Bamba\ObjectSerializer;
 
 /**
- * SectionWhatIncludes Class Doc Comment
+ * ProductDetails Class Doc Comment
  *
  * @category Class
  * @package  Bamba
@@ -43,7 +43,7 @@ use \Bamba\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SectionWhatIncludes';
+    protected static $openAPIModelName = 'Product_details';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'section' => 'string',
-        'details' => 'AnyOfObjectObject[]'
+        'head' => 'string',
+        'body' => 'string[]'
     ];
 
     /**
@@ -72,8 +72,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'section' => null,
-        'details' => null
+        'head' => null,
+        'body' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'section' => 'section',
-        'details' => 'details'
+        'head' => 'head',
+        'body' => 'body'
     ];
 
     /**
@@ -113,8 +113,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'section' => 'setSection',
-        'details' => 'setDetails'
+        'head' => 'setHead',
+        'body' => 'setBody'
     ];
 
     /**
@@ -123,8 +123,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'section' => 'getSection',
-        'details' => 'getDetails'
+        'head' => 'getHead',
+        'body' => 'getBody'
     ];
 
     /**
@@ -184,8 +184,8 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['section'] = $data['section'] ?? null;
-        $this->container['details'] = $data['details'] ?? null;
+        $this->container['head'] = $data['head'] ?? null;
+        $this->container['body'] = $data['body'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class SectionWhatIncludes implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets section
+     * Gets head
      *
      * @return string|null
      */
-    public function getSection()
+    public function getHead()
     {
-        return $this->container['section'];
+        return $this->container['head'];
     }
 
     /**
-     * Sets section
+     * Sets head
      *
-     * @param string|null $section Section title
+     * @param string|null $head head
      *
      * @return self
      */
-    public function setSection($section)
+    public function setHead($head)
     {
-        $this->container['section'] = $section;
+        $this->container['head'] = $head;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets body
      *
-     * @return AnyOfObjectObject[]|null
+     * @return string[]|null
      */
-    public function getDetails()
+    public function getBody()
     {
-        return $this->container['details'];
+        return $this->container['body'];
     }
 
     /**
-     * Sets details
+     * Sets body
      *
-     * @param AnyOfObjectObject[]|null $details details
+     * @param string[]|null $body body
      *
      * @return self
      */
-    public function setDetails($details)
+    public function setBody($body)
     {
-        $this->container['details'] = $details;
+        $this->container['body'] = $body;
 
         return $this;
     }

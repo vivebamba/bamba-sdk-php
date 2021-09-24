@@ -65,7 +65,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'double',
         'image' => 'string',
         'brief' => 'string',
-        'description' => 'AnyOfSectionWhatIncludesSectionWhatNotIncludes[]',
+        'description' => '\Bamba\Model\ProductDescription[]',
         'terms' => 'string'
     ];
 
@@ -365,7 +365,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets description
      *
-     * @return AnyOfSectionWhatIncludesSectionWhatNotIncludes[]|null
+     * @return \Bamba\Model\ProductDescription[]|null
      */
     public function getDescription()
     {
@@ -375,7 +375,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param AnyOfSectionWhatIncludesSectionWhatNotIncludes[]|null $description description
+     * @param \Bamba\Model\ProductDescription[]|null $description Commercial information of the product by sections, the number of elements of each array is dynamic
      *
      * @return self
      */

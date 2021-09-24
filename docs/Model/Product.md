@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **price** | **double** | The price of the product | [optional]
 **image** | **string** | Image of the product | [optional]
 **brief** | **string** | Plan benefit summary | [optional]
-**description** | [**AnyOfSectionWhatIncludesSectionWhatNotIncludes[]**](AnyOfSectionWhatIncludesSectionWhatNotIncludes.md) |  | [optional]
+**description** | [**\Bamba\Model\ProductDescription[]**](ProductDescription.md) | Commercial information of the product by sections, the number of elements of each array is dynamic | [optional]
 **terms** | **string** | Link to terms and conditions detailed by product | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

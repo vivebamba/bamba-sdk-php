@@ -1,6 +1,6 @@
 <?php
 /**
- * SectionWhatNotIncludesTest
+ * ProductDescriptionTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Bamba\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SectionWhatNotIncludesTest Class Doc Comment
+ * ProductDescriptionTest Class Doc Comment
  *
  * @category    Class
- * @description SectionWhatNotIncludes
+ * @description ProductDescription
  * @package     Bamba
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SectionWhatNotIncludesTest extends TestCase
+class ProductDescriptionTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class SectionWhatNotIncludesTest extends TestCase
     }
 
     /**
-     * Test "SectionWhatNotIncludes"
+     * Test "ProductDescription"
      */
-    public function testSectionWhatNotIncludes()
+    public function testProductDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
