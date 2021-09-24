@@ -4,13 +4,13 @@ All URIs are relative to https://sandbox.vivebamba.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1AdvisorMessagePost()**](BambaAdvisorApi.md#v1AdvisorMessagePost) | **POST** /v1/advisor/message | Send messages to the Bamba Advisor
+[**advisorMessagePost()**](BambaAdvisorApi.md#advisorMessagePost) | **POST** /advisor/message | Send messages to the Bamba Advisor
 
 
-## `v1AdvisorMessagePost()`
+## `advisorMessagePost()`
 
 ```php
-v1AdvisorMessagePost($advisorMessageRequest): \Bamba\Model\InlineResponse2001
+advisorMessagePost($advisorMessageRequest): \Bamba\Model\InlineResponse2001
 ```
 
 Send messages to the Bamba Advisor
@@ -39,10 +39,10 @@ $apiInstance = new Bamba\Api\BambaAdvisorApi(
 $advisorMessageRequest = new \Bamba\Model\AdvisorMessageRequest(); // \Bamba\Model\AdvisorMessageRequest
 
 try {
-    $result = $apiInstance->v1AdvisorMessagePost($advisorMessageRequest);
+    $result = $apiInstance->advisorMessagePost($advisorMessageRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BambaAdvisorApi->v1AdvisorMessagePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BambaAdvisorApi->advisorMessagePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -4,14 +4,14 @@ All URIs are relative to https://sandbox.vivebamba.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1CustomerCustomerIdServicesGet()**](CustomerApi.md#v1CustomerCustomerIdServicesGet) | **GET** /v1/customer/{customerId}/services | Get customer services
-[**v1CustomerCustomerIdServicesSkuCancelPut()**](CustomerApi.md#v1CustomerCustomerIdServicesSkuCancelPut) | **PUT** /v1/customer/{customerId}/services/{sku}/cancel | Cancel customer services
+[**customerCustomerIdServicesGet()**](CustomerApi.md#customerCustomerIdServicesGet) | **GET** /customer/{customerId}/services | Get customer services
+[**customerCustomerIdServicesSkuCancelPut()**](CustomerApi.md#customerCustomerIdServicesSkuCancelPut) | **PUT** /customer/{customerId}/services/{sku}/cancel | Cancel customer services
 
 
-## `v1CustomerCustomerIdServicesGet()`
+## `customerCustomerIdServicesGet()`
 
 ```php
-v1CustomerCustomerIdServicesGet($customerId): \Bamba\Model\Subscription
+customerCustomerIdServicesGet($customerId): \Bamba\Model\Subscription
 ```
 
 Get customer services
@@ -40,10 +40,10 @@ $apiInstance = new Bamba\Api\CustomerApi(
 $customerId = 56; // int | Bamba customer unique identifier
 
 try {
-    $result = $apiInstance->v1CustomerCustomerIdServicesGet($customerId);
+    $result = $apiInstance->customerCustomerIdServicesGet($customerId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->v1CustomerCustomerIdServicesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerCustomerIdServicesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -70,10 +70,10 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `v1CustomerCustomerIdServicesSkuCancelPut()`
+## `customerCustomerIdServicesSkuCancelPut()`
 
 ```php
-v1CustomerCustomerIdServicesSkuCancelPut($customerId, $sku): \Bamba\Model\Subscription
+customerCustomerIdServicesSkuCancelPut($customerId, $sku): \Bamba\Model\Subscription
 ```
 
 Cancel customer services
@@ -103,10 +103,10 @@ $customerId = 'customerId_example'; // string | Bamba customer unique identifier
 $sku = 'sku_example'; // string | Service sku
 
 try {
-    $result = $apiInstance->v1CustomerCustomerIdServicesSkuCancelPut($customerId, $sku);
+    $result = $apiInstance->customerCustomerIdServicesSkuCancelPut($customerId, $sku);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->v1CustomerCustomerIdServicesSkuCancelPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerCustomerIdServicesSkuCancelPut: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

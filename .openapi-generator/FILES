@@ -7,7 +7,6 @@ composer.json
 docs/Api/BambaAdvisorApi.md
 docs/Api/CustomerApi.md
 docs/Api/StoreApi.md
-docs/Api/V1Api.md
 docs/Model/AdvisorMessageRequest.md
 docs/Model/AdvisorUser.md
 docs/Model/Customer.md
@@ -30,7 +29,6 @@ git_push.sh
 lib/Api/BambaAdvisorApi.php
 lib/Api/CustomerApi.php
 lib/Api/StoreApi.php
-lib/Api/V1Api.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
@@ -58,7 +56,6 @@ phpunit.xml.dist
 test/Api/BambaAdvisorApiTest.php
 test/Api/CustomerApiTest.php
 test/Api/StoreApiTest.php
-test/Api/V1ApiTest.php
 test/Model/AdvisorMessageRequestTest.php
 test/Model/AdvisorUserTest.php
 test/Model/CustomerTest.php
