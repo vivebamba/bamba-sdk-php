@@ -5,13 +5,13 @@ All URIs are relative to https://sandbox.vivebamba.com/v1.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**customerCustomerIdServicesGet()**](CustomerApi.md#customerCustomerIdServicesGet) | **GET** /customer/{customerId}/services | Get customer services
-[**customerCustomerIdServicesSkuCancelPut()**](CustomerApi.md#customerCustomerIdServicesSkuCancelPut) | **PUT** /customer/{customerId}/services/{sku}/cancel | Cancel customer services
+[**customerCustomerIdServicesServiceIdCancelPut()**](CustomerApi.md#customerCustomerIdServicesServiceIdCancelPut) | **PUT** /customer/{customerId}/services/{serviceId}/cancel | Cancel customer services
 
 
 ## `customerCustomerIdServicesGet()`
 
 ```php
-customerCustomerIdServicesGet($customerId): \Bamba\Model\Subscription
+customerCustomerIdServicesGet($customerId): object[]
 ```
 
 Get customer services
@@ -37,7 +37,7 @@ $apiInstance = new Bamba\Api\CustomerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customerId = 56; // int | Bamba customer unique identifier
+$customerId = d625aefa-73ba-4458-a107-5b3eea9f112b; // string | Bamba customer unique identifier
 
 try {
     $result = $apiInstance->customerCustomerIdServicesGet($customerId);
@@ -51,11 +51,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | **int**| Bamba customer unique identifier |
+ **customerId** | [**string**](../Model/.md)| Bamba customer unique identifier |
 
 ### Return type
 
-[**\Bamba\Model\Subscription**](../Model/Subscription.md)
+**object[]**
 
 ### Authorization
 
@@ -70,10 +70,10 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerCustomerIdServicesSkuCancelPut()`
+## `customerCustomerIdServicesServiceIdCancelPut()`
 
 ```php
-customerCustomerIdServicesSkuCancelPut($customerId, $sku): \Bamba\Model\Subscription
+customerCustomerIdServicesServiceIdCancelPut($customerId, $serviceId): \Bamba\Model\CancellationResponse
 ```
 
 Cancel customer services
@@ -99,14 +99,14 @@ $apiInstance = new Bamba\Api\CustomerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customerId = 'customerId_example'; // string | Bamba customer unique identifier
-$sku = 'sku_example'; // string | Service sku
+$customerId = d625aefa-73ba-4458-a107-5b3eea9f112b; // string | Bamba customer unique identifier
+$serviceId = 'serviceId_example'; // string | Service Id
 
 try {
-    $result = $apiInstance->customerCustomerIdServicesSkuCancelPut($customerId, $sku);
+    $result = $apiInstance->customerCustomerIdServicesServiceIdCancelPut($customerId, $serviceId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomerIdServicesSkuCancelPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerCustomerIdServicesServiceIdCancelPut: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -114,12 +114,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | **string**| Bamba customer unique identifier |
- **sku** | **string**| Service sku |
+ **customerId** | [**string**](../Model/.md)| Bamba customer unique identifier |
+ **serviceId** | [**string**](../Model/.md)| Service Id |
 
 ### Return type
 
-[**\Bamba\Model\Subscription**](../Model/Subscription.md)
+[**\Bamba\Model\CancellationResponse**](../Model/CancellationResponse.md)
 
 ### Authorization
 
