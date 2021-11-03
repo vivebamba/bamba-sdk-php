@@ -24,7 +24,7 @@ if [ "$git_repo_id" = "" ]; then
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="Simplify response of products endpoint, add uuid for customer services"
+    release_note="Add slug to products endpoint response"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 

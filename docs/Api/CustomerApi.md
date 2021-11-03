@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | [**string**](../Model/.md)| Bamba customer unique identifier |
+ **customerId** | **string**| Bamba customer unique identifier |
 
 ### Return type
 
@@ -99,8 +99,8 @@ $apiInstance = new Bamba\Api\CustomerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customerId = d625aefa-73ba-4458-a107-5b3eea9f112b; // string | Bamba customer unique identifier
-$serviceId = 'serviceId_example'; // string | Service Id
+$customerId = d625aefa-73ba-4458-a107-5b3eea9f112b; // string | The customer UUID assigned by Bamba
+$serviceId = z625aefa-73ba-4458-a107-5b3eea9526a; // string | The service UUID to cancel assigned by Bamba
 
 try {
     $result = $apiInstance->customerCustomerIdServicesServiceIdCancelPut($customerId, $serviceId);
@@ -114,8 +114,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | [**string**](../Model/.md)| Bamba customer unique identifier |
- **serviceId** | [**string**](../Model/.md)| Service Id |
+ **customerId** | **string**| The customer UUID assigned by Bamba |
+ **serviceId** | **string**| The service UUID to cancel assigned by Bamba |
 
 ### Return type
 

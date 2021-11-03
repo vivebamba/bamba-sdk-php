@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sku** | **string** | A unique identifier for the product variant | [optional]
 **name** | **string** | The name of the product | [optional]
+**slug** | **string** | Product slug | [optional]
 **price** | **double** | The price of the product | [optional]
 **image** | **string** | Image of the product | [optional]
 **brief** | **string** | Plan benefit summary | [optional]
